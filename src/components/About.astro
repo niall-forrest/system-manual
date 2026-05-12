@@ -1,0 +1,115 @@
+---
+const facts = [
+  { k: "Working with", v: "Founders, studios, and product teams" },
+  { k: "Focus", v: "Product, design, engineering, AI" },
+  { k: "Stack", v: "Astro, Lit, TypeScript, Swift, Python, React Native — and whatever fits the job" },
+  { k: "Location", v: "Cape Town / Ireland / Remote" },
+];
+---
+
+<section id="about" class="section about" aria-labelledby="about-title">
+  <div class="container about__inner">
+    <div class="about__lede">
+      <span class="eyebrow">About</span>
+      <h2 id="about-title" class="section__title about__title">
+        I build product,<br />end to end.
+      </h2>
+    </div>
+
+    <div class="about__body">
+      <p class="about__para about__para--lead">
+        I'm a software engineer and designer.
+      </p>
+      <p class="about__para">
+        My work moves between code, interface, product thinking, and AI. I
+        like building things that are useful, clear, and a little opinionated.
+      </p>
+      <p class="about__para">
+        Most projects start loose: an idea, a problem, a messy workflow, a
+        half-formed product. I help shape them into something real.
+      </p>
+
+      <dl class="about__facts">
+        {facts.map((fact) => (
+          <div class="about__fact">
+            <dt>{fact.k}</dt>
+            <dd>{fact.v}</dd>
+          </div>
+        ))}
+      </dl>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about__inner {
+    display: grid;
+    gap: var(--space-7);
+  }
+
+  .about__title {
+    margin-top: var(--space-3);
+    max-width: 14ch;
+  }
+
+  .about__body {
+    display: grid;
+    gap: var(--space-5);
+  }
+
+  .about__para {
+    font-size: var(--fs-md);
+    max-width: 56ch;
+  }
+
+  .about__para--lead {
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.4vw, 1.75rem);
+    font-weight: 500;
+    line-height: 1.25;
+    letter-spacing: var(--tracking-tight);
+    max-width: 32ch;
+    color: var(--color-fg);
+  }
+
+  .about__facts {
+    margin: var(--space-6) 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0;
+    border-top: var(--border);
+  }
+
+  .about__fact {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-4);
+    padding-block: var(--space-4);
+    border-bottom: var(--border-soft);
+  }
+
+  .about__fact dt {
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-wide);
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin: 0;
+  }
+
+  .about__fact dd {
+    font-family: var(--font-display);
+    font-size: var(--fs-md);
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  @media (min-width: 900px) {
+    .about__inner {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+  }
+</style>

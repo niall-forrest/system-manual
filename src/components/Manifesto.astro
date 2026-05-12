@@ -1,0 +1,136 @@
+---
+// Each phrase is a contiguous run of words sharing an accent state.
+// Words are output as spans the client script can light up on scroll.
+const phrases = [
+  { text: "Most software is forgettable.", accent: false },
+  { text: "I'm interested in the kind that isn't —", accent: false },
+  { text: "useful, clear, and made with purpose.", accent: true },
+];
+
+let i = 0;
+const tokens = phrases.flatMap((phrase) =>
+  phrase.text.split(/\s+/).map((word) => ({
+    word,
+    accent: phrase.accent,
+    idx: i++,
+  })),
+);
+const total = tokens.length;
+---
+
+<section class="manifesto" aria-label="Statement">
+  <div class="manifesto__sticky">
+    <div class="container">
+      <p class="manifesto__copy" data-total={total}>
+        {tokens.map((token) => (
+          <>
+            <span
+              class:list={["word", token.accent && "word--accent"]}
+              data-idx={token.idx}
+            >{token.word}</span>{" "}
+          </>
+        ))}
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  const section = document.querySelector<HTMLElement>(".manifesto");
+  if (section) {
+    const words = Array.from(
+      section.querySelectorAll<HTMLElement>(".word"),
+    );
+    const total = words.length;
+    let ticking = false;
+
+    const update = () => {
+      ticking = false;
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight;
+      const viewHeight = window.innerHeight;
+      const scrollable = Math.max(1, sectionHeight - viewHeight);
+      // 0 when section top hits viewport top, 1 when its bottom leaves
+      const raw = -rect.top / scrollable;
+      const progress = Math.max(0, Math.min(1, raw));
+      // Map progress to words. Slight head-start so first word lights early.
+      const eased = Math.min(1, progress * 1.15);
+      const revealed = Math.round(eased * total);
+      for (let i = 0; i < total; i++) {
+        words[i].classList.toggle("word--lit", i < revealed);
+      }
+    };
+
+    const onScroll = () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    update();
+  }
+</script>
+
+<style>
+  .manifesto {
+    position: relative;
+    height: 180vh;
+    border-top: var(--border);
+    border-bottom: var(--border);
+    background: var(--color-bg);
+  }
+
+  .manifesto__sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding-block: var(--space-8);
+  }
+
+  .manifesto__copy {
+    font-family: var(--font-display);
+    font-weight: 500;
+    font-size: clamp(2rem, 6.2vw, 5.75rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    text-transform: uppercase;
+    max-width: 22ch;
+    margin: 0;
+  }
+
+  .word {
+    color: var(--color-line-soft);
+    transition: color 220ms ease;
+    display: inline;
+  }
+
+  .word--lit {
+    color: var(--color-fg);
+  }
+
+  .word--accent.word--lit {
+    color: var(--color-accent);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .manifesto {
+      height: auto;
+    }
+    .manifesto__sticky {
+      position: static;
+      height: auto;
+    }
+    .word {
+      color: var(--color-fg);
+      transition: none;
+    }
+    .word--accent {
+      color: var(--color-accent);
+    }
+  }
+</style>

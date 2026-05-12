@@ -1,0 +1,121 @@
+---
+const services = [
+  {
+    n: "01",
+    title: "AI products",
+    body:
+      "Assistants, RAG, workflows, prototypes, and model-powered features.",
+  },
+  {
+    n: "02",
+    title: "Full-stack builds",
+    body:
+      "Web apps, APIs, databases, integrations, and production systems.",
+  },
+  {
+    n: "03",
+    title: "Mobile apps",
+    body: "React Native and Expo apps, from onboarding to release.",
+  },
+  {
+    n: "04",
+    title: "Product design",
+    body: "Flows, interfaces, prototypes, and the shape of the thing.",
+  },
+  {
+    n: "05",
+    title: "Design systems",
+    body: "Components, patterns, standards, and documentation.",
+  },
+  {
+    n: "06",
+    title: "Brand & web",
+    body: "Websites, landing pages, visual systems, and digital identities.",
+  },
+];
+---
+
+<section id="services" class="section services" aria-labelledby="services-title">
+  <div class="container">
+    <header class="section__header">
+      <h2 id="services-title" class="section__title">Capabilities.</h2>
+      <p class="section__lede">
+        Things I can help with. Most projects pull on a few of these at once —
+        the interesting work usually sits between them.
+      </p>
+    </header>
+
+    <ol class="services__list">
+      {services.map((service) => (
+        <li class="services__item">
+          <span class="services__num">{service.n}</span>
+          <h3 class="services__title">{service.title}</h3>
+          <p class="services__body">{service.body}</p>
+        </li>
+      ))}
+    </ol>
+  </div>
+</section>
+
+<style>
+  .services__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border-top: var(--border);
+  }
+
+  .services__item {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-template-areas:
+      "num title"
+      "num body";
+    column-gap: var(--space-5);
+    row-gap: var(--space-2);
+    padding-block: var(--space-6);
+    border-bottom: var(--border-soft);
+    transition: background-color 150ms ease;
+  }
+
+  .services__item:hover {
+    background-color: rgba(10, 10, 10, 0.025);
+  }
+
+  .services__num {
+    grid-area: num;
+    font-family: var(--font-mono);
+    font-size: var(--fs-xs);
+    letter-spacing: var(--tracking-wide);
+    color: var(--color-muted);
+    padding-top: 0.5rem;
+    min-width: 2.5ch;
+  }
+
+  .services__title {
+    grid-area: title;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-weight: 500;
+    letter-spacing: var(--tracking-tight);
+    line-height: 1.05;
+  }
+
+  .services__body {
+    grid-area: body;
+    font-size: var(--fs-md);
+    max-width: 56ch;
+    color: var(--color-fg);
+  }
+
+  @media (min-width: 900px) {
+    .services__item {
+      grid-template-columns: auto 1.4fr 2fr;
+      grid-template-areas: "num title body";
+      align-items: start;
+      gap: var(--space-7);
+    }
+    .services__body {
+      padding-top: 0.6rem;
+    }
+  }
+</style>

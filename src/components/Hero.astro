@@ -1,0 +1,76 @@
+---
+---
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="container hero__inner">
+    <h1 id="hero-title" class="hero__title">
+      Niall<br />Forrest<span class="hero__dot">.</span>
+    </h1>
+
+    <div class="hero__row">
+      <p class="hero__supporting">
+        I design and build software.<br />
+        Across AI, products, systems, and interfaces.
+      </p>
+      <p class="hero__intro">
+        I make useful digital things, from the interface down to the systems
+        underneath.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding-block: clamp(3rem, 8vw, 7rem) clamp(3rem, 7vw, 6rem);
+    border-bottom: var(--border);
+  }
+
+  .hero__inner {
+    display: grid;
+    gap: clamp(2rem, 5vw, 4rem);
+  }
+
+  .hero__title {
+    font-size: var(--fs-hero);
+    line-height: 0.85;
+    letter-spacing: -0.05em;
+    font-weight: 500;
+    margin: 0;
+  }
+
+  .hero__dot {
+    color: var(--color-accent);
+  }
+
+  .hero__row {
+    display: grid;
+    gap: var(--space-6);
+    padding-top: var(--space-6);
+    border-top: var(--border-soft);
+  }
+
+  .hero__supporting {
+    font-family: var(--font-display);
+    font-size: clamp(1.5rem, 3.2vw, 2.5rem);
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: var(--tracking-tight);
+    max-width: 24ch;
+  }
+
+  .hero__intro {
+    font-size: var(--fs-md);
+    line-height: var(--lh-body);
+    max-width: 44ch;
+    color: var(--color-fg);
+  }
+
+  @media (min-width: 900px) {
+    .hero__row {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      align-items: start;
+    }
+  }
+</style>

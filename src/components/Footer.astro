@@ -1,0 +1,56 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <div class="footer__col">
+      <span class="eyebrow">© {year}</span>
+      <span class="footer__name">Niall Forrest</span>
+    </div>
+    <div class="footer__col footer__col--right">
+      <span class="eyebrow">Colophon</span>
+      <span>
+        Built in Astro. Set in Space Grotesk &amp; Inter.
+      </span>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-inverse-bg);
+    color: var(--color-inverse-fg);
+    border-top: 1px solid rgba(246, 244, 239, 0.18);
+  }
+
+  .footer__inner {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-5);
+    padding-block: var(--space-6);
+    font-size: var(--fs-sm);
+  }
+
+  .footer :global(.eyebrow) {
+    color: rgba(246, 244, 239, 0.55);
+    display: block;
+    margin-bottom: var(--space-2);
+  }
+
+  .footer__name {
+    font-family: var(--font-display);
+    font-weight: 500;
+    letter-spacing: var(--tracking-tight);
+  }
+
+  @media (min-width: 700px) {
+    .footer__inner {
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+    }
+    .footer__col--right {
+      text-align: right;
+    }
+  }
+</style>
