@@ -20,7 +20,7 @@ import { projects } from "../data/projects";
     <div class="work__grid">
       {projects.map((project, i) => (
         <ProjectCard
-          index={`W—${String(i + 1).padStart(2, "0")}`}
+          index={`W/${String(i + 1).padStart(2, "0")}`}
           slug={project.slug}
           title={project.title}
           description={project.cardDescription}

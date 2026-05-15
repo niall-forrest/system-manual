@@ -27,7 +27,7 @@ Node 22 or higher. No database, no API, no auth. Nothing to set up.
 src/
 ├── components/       # Hero, Manifesto, Work, About, Services, Contact, Nav, Footer, ProjectCard
 ├── data/
-│   └── projects.ts   # single source of truth — edit projects here
+│   └── projects.ts   # single source of truth; edit projects here
 ├── layouts/
 │   └── Layout.astro  # html shell, fonts, global css import
 ├── pages/
@@ -53,15 +53,15 @@ reads from this one token. Currently set to International Orange (`#FF4F00`).
 
 ## What this isn't
 
-- A starter template — opinionated layout choices, swap with care.
-- A CMS-backed site — content lives in TypeScript, intentionally.
-- Particularly clever — the cleverness is in what's been left out.
+- A starter template: opinionated layout choices, swap with care.
+- A CMS-backed site: content lives in TypeScript, intentionally.
+- Particularly clever: the cleverness is in what's been left out.
 
 ---
 
 ## License
 
 The code is mine to share. The writing, the visual decisions, and the project
-case studies are not — please don't copy those wholesale onto your own site.
+case studies are not, so please don't copy those wholesale onto your own site.
 
 Made with care. And, where it helped, with AI.

@@ -57,11 +57,11 @@ export const projects: Project[] = [
     role: "Product lead, systems architecture, UX design, full-stack engineering, AI workflow design",
     stack: "TypeScript, Next.js, RAG, Postgres, Stripe",
     context:
-      "Many nonprofits need modern digital products, but they rarely have the budget or internal capacity to build and maintain custom software for every campaign, audience, or support journey. This platform is designed to give organisations flexible AI-powered tools that can be adapted across different missions, brands, and user needs.",
+      "Many nonprofits need modern digital products, but they rarely have the budget or internal capacity to build and maintain custom software for every campaign, audience, or support journey. This platform gives organisations AI tools that can be shaped around different missions, brands, and user needs.",
     whatIDid:
-      "I work across the platform foundations: AI retrieval, configurable experiences, product flows, donation and membership journeys, analytics, content structures, and the interface patterns needed to support multiple organisations from one underlying system. This includes embedded donation flows, membership experiences, AI chat, knowledge retrieval, and tools that help organisations turn existing content into more useful digital interactions.",
+      "I work across the platform foundations: AI retrieval, configurable experiences, product flows, donation and membership journeys, analytics, content structures, and the interface patterns needed to support multiple organisations from one underlying system. This includes embedded donation flows, membership experiences, AI chat, knowledge retrieval, and tools that help organisations turn existing content into clearer tools people can actually use.",
     whereItLanded:
-      "The platform gives nonprofits a faster way to launch useful AI and engagement products without starting from scratch each time. It also creates a more consistent foundation for experimentation, measurement, and iteration across multiple organisations.",
+      "The platform gives nonprofits a faster way to launch useful AI and engagement products without starting from scratch each time. It also creates a steadier base for testing, measuring, and improving what works across multiple organisations.",
     imageDirection:
       "Abstract product system visuals: configurable blocks, donation cards, chat panels, source snippets, dashboard fragments, membership UI. Keep it structured and editorial rather than SaaS-dashboard-heavy.",
     confidentiality:
@@ -107,9 +107,9 @@ export const projects: Project[] = [
     context:
       "Most AI agents are built around immediate responses. They can answer, call tools, and complete tasks in the moment, but they do not naturally understand time. Cronlet explores the missing layer: scheduling infrastructure that lets agents operate across minutes, hours, days, and recurring workflows.",
     whatIDid:
-      "I helped develop the product and positioning around scheduling infrastructure for AI agents: creating a developer-facing product that gives agents temporal capabilities such as reminders, delayed execution, recurring actions, and time-aware workflows.",
+      "I helped develop the product and positioning around scheduling infrastructure for AI agents: creating a developer-facing product that lets agents remember later, run on a schedule, repeat work, and handle time-based tasks.",
     whatChanged:
-      "Cronlet gives agent builders a cleaner way to design AI systems that do not just respond instantly, but can return later, continue work, and behave more like persistent digital workers.",
+      "Cronlet gives agent builders a cleaner way to design AI systems that do not just respond instantly, but can return later and pick work back up.",
     imageDirection:
       "Developer-focused visuals: terminal fragments, schedule timelines, agent task cards, cron-like syntax, event logs, and diagrams showing time-based agent execution.",
     swatch: "#0a0a0a",
@@ -152,7 +152,7 @@ export const projects: Project[] = [
     context:
       "Net Impact is a large nonprofit network connecting people who want to use their careers for positive social and environmental impact. With a broad audience and a wide range of programmes, the website needed to communicate clearly without overwhelming visitors.",
     whatIDid:
-      "I redesigned and developed key parts of the website experience, focusing on clearer structure, stronger visual hierarchy, easier navigation, and a more polished digital presence for a large membership organisation. The work balanced organisational credibility with a more accessible, action-oriented user experience for members, partners, and new visitors.",
+      "I redesigned and developed key parts of the website experience, focusing on clearer pages, simpler navigation, and a site that felt more credible to new visitors. The work balanced organisational credibility with a more accessible, action-oriented user experience for members, partners, and new visitors.",
     whatChanged:
       "The redesigned website helped present Net Impact's work with more clarity and confidence, making it easier for users to understand the organisation, explore programmes, and engage with the network.",
     imageDirection:
@@ -177,7 +177,7 @@ export const projects: Project[] = [
     whatIDid:
       "I designed a stripped-back, image-led web experience with simple navigation, strong spacing, and a visual system that lets the talent photography carry the brand. The design avoids overworked interface details in favour of clarity, confidence, and restraint.",
     whatChanged:
-      "The result is a quieter, more premium digital presence that gives the agency a clear identity while keeping the models front and centre.",
+      "The result is a quieter, sharper website that gives the agency a clear identity while keeping the models front and centre.",
     imageDirection:
       "Use the model grid as the main visual reference: large square or portrait image crops, serif logo lockup, lots of white space, thin lines, restrained navigation.",
     swatch: "#0a0a0a",

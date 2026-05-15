@@ -6,12 +6,32 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
 }
 
 const {
-  title = "Niall Forrest — Software engineer, AI product builder, and designer.",
+  title = "Niall Forrest | Software engineer, AI product builder, and designer.",
   description = "Independent practice working across strategy, design, engineering, and AI product development.",
+  image = "/social-card.svg",
 } = Astro.props;
+
+const canonicalUrl = new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString();
+const imageUrl = new URL(image, canonicalUrl).toString();
+const siteName = "Niall Forrest";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Niall Forrest",
+  url: canonicalUrl,
+  jobTitle: "Software engineer, AI product builder, and designer",
+  knowsAbout: [
+    "Software engineering",
+    "Product design",
+    "AI product development",
+    "Full-stack development",
+    "Mobile UX",
+  ],
+};
 ---
 
 <!doctype html>
@@ -22,8 +42,22 @@ const {
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <meta name="theme-color" content="#f6f4ef" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:image:alt" content="Niall Forrest monogram" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={imageUrl} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -33,6 +67,7 @@ const {
     />
 
     <title>{title}</title>
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   </head>
   <body>
     <Nav />
